@@ -36,7 +36,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   void _register() {
     if (_formKey.currentState!.validate()) {
-      // Імітація реєстрації: показуємо повідомлення та переходимо до чату
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Успішна реєстрація! Перехід до чату...')),
       );
@@ -184,7 +183,7 @@ class _ChatScreenState extends State<ChatScreen> {
       _messages.insert(0, Message(text: text, isMe: true));
     });
 
-    // Імітація відповіді від співрозмовника через 1 секунду
+    
     Future.delayed(const Duration(seconds: 1), () {
       if (mounted) {
         setState(() {
@@ -275,7 +274,7 @@ class _ChatScreenState extends State<ChatScreen> {
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.all(8.0),
-              reverse: true, // Повідомлення відображатимуться знизу вгору
+              reverse: true, 
               itemCount: _messages.length,
               itemBuilder: (context, index) {
                 return _buildMessage(_messages[index]);
